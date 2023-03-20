@@ -44,3 +44,5 @@ class TransformerModel(nn.Module):
         output = self.decoder(output)
         return output
 ```
+BPE(Byte Pair Encoding)에 대한 설명   
+https://wikidocs.net/22592
