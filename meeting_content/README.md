@@ -1,10 +1,10 @@
 # 회의내용
 
 ## 목차
-  1주차   
-  2주차   
-  3주차   
-  4주차   
+  [1주차](https://github.com/Chun-Jihun/capstonedesign/tree/main/meeting_content#1주차)   
+  [2주차](https://github.com/Chun-Jihun/capstonedesign/tree/main/meeting_content#2주차)   
+  [3주차](https://github.com/Chun-Jihun/capstonedesign/tree/main/meeting_content#3주차)   
+  [4주차](https://github.com/Chun-Jihun/capstonedesign/tree/main/meeting_content#4주차)   
   5주차   
 
 ## 1주차
@@ -78,6 +78,7 @@
   * 캡스톤 디자인 담당 교수님이신 박승용 교수님께 이메일로 문의를 드려서 현재 나온 5가지 주제를 줄이고 간소화
   * 개발 자문 관련 담당 교수님께 이메일을 드리고 자문을 구하는 형식으로 진행을 할 것
 
+## 2주차
 
 ### 230309 - 분반 OT 및 프로젝트 회의
   1. 분반OT내용
@@ -102,6 +103,7 @@
   
 ### 230313 - 박승용 교수님 면담
 
+## 3주차
 
 ### 230315 - 허종욱 교수님 면담
 1. 교수님 캡스톤 지도방식
@@ -131,3 +133,7 @@
 - 플랫폼 : 최종적으로는 앱 (현재는 하이브리드 앱을 대상 -> 웹에서 모바일 UI에 맞게 개발, 앱으로 해당 웹 페이지를 띄워 최종적으로는 앱의 형태로 만들어냄) [나중에 기회가 된다면 아얘 크로스플랫폼 앱(플러터 개발)을 노린다.
 
 - 추가 : 2023/03/20(월) 오후 6시 공학관에 모여서 서류 작성할 것.
+
+### 230320 - 제출해야할 서류 작성
+
+## 4
