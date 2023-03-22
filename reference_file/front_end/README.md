@@ -10,5 +10,5 @@
 
 > JS를 이용한 파일명 목록 미리보기 만들기
 >https://developer.mozilla.org/ko/docs/Web/API/FileList
->> 목록+미리보기 최적화 (chatGPT 및 코드 다듬기)
+>> 목록+미리보기 최적화 (chatGPT 사용 및 코드 다듬기)
 ><hr />
