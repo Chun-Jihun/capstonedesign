@@ -8,6 +8,7 @@
   <li>링크 목록 (업데이트용)</li>
 </ul> 
 
-> JS를 이용한 이미지 미리보기 방법
+> JS를 이용한 파일명 목록 미리보기 만들기
 >https://developer.mozilla.org/ko/docs/Web/API/FileList
+>> 목록+미리보기 최적화 (chatGPT 및 코드 다듬기)
 ><hr />
