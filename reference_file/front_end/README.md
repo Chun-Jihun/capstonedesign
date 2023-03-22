@@ -6,7 +6,8 @@
   - 설멍: 개발할 때 참고했던 교과목 데이터자료 폴더
   <hr />
   <li>링크 목록 (업데이트용)</li>
-</ul>  
+</ul> 
+
 > JS를 이용한 이미지 미리보기 방법
 >https://developer.mozilla.org/ko/docs/Web/API/FileList
 ><hr />
