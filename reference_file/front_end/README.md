@@ -7,4 +7,4 @@
 > 링크 목록 (업데이트용)
 >> JS를 이용한 이미지 미리보기 방법
 >><hr />
->><a href="https://developer.mozilla.org/ko/docs/Web/API/FileList">
+>><link src="https://developer.mozilla.org/ko/docs/Web/API/FileList">
