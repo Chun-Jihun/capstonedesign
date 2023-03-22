@@ -20,3 +20,6 @@
 > reference_file
 >> 캡스톤디자인을 수행하면서 필요한 참고자료들이 들어있는 폴더입니다.
 
+>capstonDesignProject
+>> 캡스톤디자인 프로젝트 폴더입니다.
+
