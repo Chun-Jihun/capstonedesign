@@ -25,3 +25,6 @@
 
 > UI UX 레퍼런스 사이트 7곳
 > https://wildpuppy.tistory.com/entry/UI-UX-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4-%EC%82%AC%EC%9D%B4%ED%8A%B8-7%EA%B3%B3
+
+> [주니어 기획자들을 위한 실전서] 토스에서 찾아본 10가지 UX 법칙
+> https://www.mobiinside.co.kr/2023/03/29/toss-ux-2/
