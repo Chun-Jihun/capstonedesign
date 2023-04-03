@@ -18,14 +18,32 @@
 
 <li>디자인 관련 링크 목록</li>
 
-> 2022년 TOP 10 모바일 앱 UI 디자인 아이디어
-> https://appmaster.io/ko/blog/2022nyeon-top-10-mobail-aeb-ui-dijain-aidieo
+> <li>UI/UX 관련 링크</li>
+ 
+>> 2022년 TOP 10 모바일 앱 UI 디자인 아이디어 <br>
+>> https://appmaster.io/ko/blog/2022nyeon-top-10-mobail-aeb-ui-dijain-aidieo
 
-> 모바일 UI·UX 디자인 시 고려해야 할 가이드라인 1
-> https://brunch.co.kr/@chulhochoiucj0/8
+>> 모바일 UI·UX 디자인 시 고려해야 할 가이드라인 1 <br>
+>> https://brunch.co.kr/@chulhochoiucj0/8
 
-> UI UX 레퍼런스 사이트 7곳
-> https://wildpuppy.tistory.com/entry/UI-UX-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4-%EC%82%AC%EC%9D%B4%ED%8A%B8-7%EA%B3%B3
+>> UI UX 레퍼런스 사이트 7곳 <br>
+>> https://wildpuppy.tistory.com/entry/UI-UX-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4-%EC%82%AC%EC%9D%B4%ED%8A%B8-7%EA%B3%B3
 
-> [주니어 기획자들을 위한 실전서] 토스에서 찾아본 10가지 UX 법칙
-> https://www.mobiinside.co.kr/2023/03/29/toss-ux-2/
+>> [주니어 기획자들을 위한 실전서] 토스에서 찾아본 10가지 UX 법칙 <br>
+>> https://www.mobiinside.co.kr/2023/03/29/toss-ux-2/
+
+><hr />
+
+> <li>CSS 관련 링크</li>
+
+>> CSS:그래프 만들기 <br>
+>> https://d8040.tistory.com/110
+
+>> JS로 간단한 그래프 만들기! <br>
+>> https://ninetynine-2026.tistory.com/317
+
+>>  HTML/CSS로 막대그래프 그리기(chart)_기본편 <br>
+>> https://velog.io/@hsecode/HTMLCSS-%EB%A7%89%EB%8C%80%EA%B7%B8%EB%9E%98%ED%94%84
+
+
+
