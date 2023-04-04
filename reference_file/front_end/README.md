@@ -45,5 +45,24 @@
 >>  HTML/CSS로 막대그래프 그리기(chart)_기본편 <br>
 >> https://velog.io/@hsecode/HTMLCSS-%EB%A7%89%EB%8C%80%EA%B7%B8%EB%9E%98%ED%94%84
 
+><hr />
 
+><li>Form 관련 링크</li>
 
+>>form 데이터 주고 받기<br>
+>>https://cloudstudying.kr/lectures/72
+
+>>[JavaScript] 이벤트, 폼(form)의 입력 내용 가져오기<br>
+>>https://jongdai.tistory.com/45
+
+>>form을 이용하여 데이터 송수신하기 - Python<br>
+>>https://jamong-icetea.tistory.com/107
+
+>>HTML form 태그를 사용하여 데이터 전송하기<br>
+>>https://cocoder16.tistory.com/17
+
+>>자바스크립트(Javascript) form 의 submit (전송)을 자바스크립트로 실행하는 방법<br>
+>>https://mainia.tistory.com/3850
+
+>>HTML : 폼(form) 이해<br>
+>>https://www.nextree.co.kr/p8428/
