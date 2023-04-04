@@ -66,3 +66,10 @@
 
 >>HTML : 폼(form) 이해<br>
 >>https://www.nextree.co.kr/p8428/
+
+><hr />
+
+><li>결과창 및 다운로드 관련 링크</li>
+
+>>Convert HTML to EPUB in Java
+>>https://products.aspose.com/words/java/conversion/html-to-epub/
