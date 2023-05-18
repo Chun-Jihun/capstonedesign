@@ -1,0 +1,289 @@
+html, body{
+    margin:0; padding:0; height:100%
+}
+
+header{
+    display:flex; flex-flow:row nowrap; justify-content: center; align-items:center;
+
+    width: 100%; height:30%; justify-content: center; align-items: center;
+    background:skyblue;
+}
+
+#logo{
+    width:180px;
+    height:180px;
+    border-radius: 30%;
+}
+
+section{
+    /*입력 요소를 가운데에 몰아넣기 위한 코드*/
+    display:flex; flex-flow:row nowrap; justify-content: center; align-items: center;
+    
+    width: 100%; height:auto;
+}
+
+#fileList{
+    display:flex;
+    text-align: center;
+}
+
+.output{
+    width:800px;
+    height:200px;
+    overflow:scroll;
+    text-align:center;
+
+    border: 1px black solid;
+
+    -ms-overflow-style: none; /*인터넷 익스플로러*/
+    scrollbar-width: none; /*파이어폭스*/
+}
+
+.output::-webkit-scrollbar {
+    display:none;
+}
+
+
+#selector{
+    width:750px;
+}
+
+#submitButton{
+    width:50px;
+}
+
+footer{
+    width:100%; height:20%; justify-content: center; align-items: center;
+
+    background-color: skyblue;
+}
+
+#teamInfo{
+        padding:10px
+}
+
+
+
+/*태블릿 화면 사이즈*/
+@media (min-width:400px) and (max-width: 799px){
+    *{margin:0; padding:0; vertical-align:top; border:0; outline:0;}
+    header{
+    display:flex; flex-flow:row nowrap; justify-content: center; align-items:center;
+
+    width: 100%; height:300px; justify-content: center; align-items: center;
+    background: blue
+    }
+
+    #logo{
+        width:150px;
+        height:150px;
+        border-radius: 30%;
+    }
+
+    section{
+        /*입력 요소를 가운데에 몰아넣기 위한 코드*/
+        display:flex; flex-flow:row nowrap; justify-content: center; align-items: center;
+        
+        width: 100%; height:auto; 
+    }
+
+    #fileList{
+        display:flex;
+        text-align: center;
+    }
+
+    .output{
+        width:400px;
+        height:180px;
+        overflow:scroll;
+        text-align:center;
+
+        border: 5px solid black;
+        border-radius: 20px;
+    }
+
+    #thumbnail{
+        width:100px;
+        height: 100px;
+    }
+
+    #title{
+        display:flex; flex-flow:column; justify-content: center; align-items: center;
+        
+        width:100%;
+        height: auto;
+    }
+
+    #selector{
+        border: 4px solid black;
+        border-radius: 30px;
+        
+
+        /*크기 설정*/
+        width:80%;
+        height: 80px;
+        margin: 5px auto;
+        
+
+        /*폰트 설정*/
+        font-size: 50px;
+
+        transition: 0.3s;
+    }
+
+    #selector:hover{
+        background-color: lightgrey;
+    }
+
+    option{
+        text-align: center;
+        font-size: 50px;
+    }
+
+    #submitButton{
+        background-color: black;
+
+        /*UI size*/
+        width:80%;
+        height: 50px;
+        margin: 5px auto;
+
+        /*border*/
+        border-radius : 30px;
+
+        /*font*/
+        font-size: 20px;
+        font-weight: 1000;
+        color:white;
+    }
+
+    #submitButton:active{
+        background-color: white;
+        color:black;
+
+        border: 2px solid black;
+    }
+
+    footer{
+        width:100%; height:20%; justify-content: center; align-items: center;
+    
+        background-color: skyblue;
+    }
+    
+    #teamInfo{
+        text-align: center;
+        padding:10px
+    }
+}
+
+/*스마트폰 화면 사이즈*/
+@media (max-width: 399px){
+    *{margin:0; padding:0; vertical-align:top; border:0; outline:0;}
+    header{
+        display:flex; flex-flow:row nowrap; justify-content: center; align-items:center;
+
+        width: 100%; height:30%; justify-content: center; align-items: center;
+        background:blueviolet;
+    }
+
+    #logo{
+        width:120px;
+        height:120px;
+        border-radius: 30%;
+    }
+
+    section{
+        /*입력 요소를 가운데에 몰아넣기 위한 코드*/
+        display:flex; flex-flow:row nowrap; justify-content: center; align-items: center;
+        
+        width: 100%; height:auto; 
+    }
+
+    #fileList{
+        display:flex;
+        text-align: center;
+    }
+
+    .output{
+        width:300px;
+        height:150px;
+        overflow:scroll;
+        text-align:center;
+
+        border: 5px solid black;
+        border-radius: 20px;
+    }
+
+    #thumbnail{
+        width:80px;
+        height: 80px;
+    }
+
+    #title{
+        display:flex; flex-flow:column; justify-content: center; align-items: center;
+        
+        width:100%;
+        height: auto;
+    }
+
+    #selector{
+        border: 4px solid black;
+        border-radius: 30px;
+        
+
+        /*크기 설정*/
+        width:80%;
+        height: 60px;
+        margin: 5px auto;
+        
+
+        /*폰트 설정*/
+        font-size: 40px;
+
+        transition: 0.3s;
+    }
+
+    #selector:hover{
+        background-color: lightgrey;
+    }
+
+    option{
+        text-align: center;
+        font-size: 40px;
+    }
+
+    #submitButton{
+        background-color: black;
+
+        /*UI size*/
+        width:80%;
+        height: 50px;
+        margin: 5px auto;
+
+        /*border*/
+        border-radius : 30px;
+
+        /*font*/
+        font-size: 20px;
+        font-weight: 1000;
+        color:white;
+    }
+
+    #submitButton:active{
+        background-color: white;
+        color:black;
+
+        border: 2px solid black;
+    }
+
+    footer{
+        width:100%; height:20%; justify-content: center; align-items: center;
+    
+        background-color: skyblue;
+    }
+    
+    #teamInfo{
+        text-align: center;
+        padding:10px
+    }
+}
