@@ -59,9 +59,6 @@
             }
 
             #photoMaker{
-                
-                
-
                 width: 100%;
 
 
@@ -72,16 +69,35 @@
             #fairyTaleMaker{
                 display: none;
 
-                width: 200px;
-                height: 200px;
-
-                background: red;
-
-                text-align: center;
+                justify-content: center;
+                align-items: center;
 
                 /*animation*/
                 animation: fadeInRight 0.5s;
             }
+
+            #F_title{
+                display:flex;
+
+                flex-flow:column;
+
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            #F_title textarea{
+                border: 1px black solid;
+
+                margin: 10px 0;
+            }
+            
+            #F_title button{
+                width: 20em;
+
+                margin: 10px 0;
+            }
+
         </style>
 
         <link rel="stylesheet" href="css/mainPage.css" />
@@ -107,6 +123,56 @@
             }
         </script>
 
+        <script>
+            const output=document.querySelector('.output');
+            const selectedFiles = document.querySelector("#filesList");
+
+            /*function logFilenames(){
+                const fileInput = document.querySelector("#filesList");
+                const files = fileInput.files;
+                const fileListLength = files.length;
+
+                console.log(fileInput);
+
+                for(let i = 0; i < fileListLength; i++){
+                    //output.innerText = `${output.content}\n${output.innerText}\n${files.item(i).name}`;
+                    output.innerHTML += `<img src=${files.item(i).value}>`+"<br />"+`<p>${files.item(i).name}</p>`;
+                }
+            }
+
+            selectedFiles.addEventListener("change", logFilenames);*/
+
+            function logFilenames(){
+                const files = selectedFiles.files;
+                const fileListLength = files.length;
+                const images = [];
+
+                for(let i = 0; i < fileListLength; i++){
+                    const file = files.item(i);
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = () => {
+                    const img = new Image();
+                    img.src = reader.result;
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        canvas.width = 150;
+                        canvas.height = 100;
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        images.push(`<img id="thumbnail" src="${canvas.toDataURL('image/*')}"><br><p>${file.name}</p>`);
+                        if (images.length === fileListLength) {
+                        output.innerHTML = images.join('');
+                        }
+                    };
+                    };
+                }
+            }
+
+            selectedFiles.addEventListener("change", logFilenames);
+
+        </script>
+
     </head>
     <body>
         <header>
@@ -120,10 +186,7 @@
                 </div>
 
                 <div id="fairyTaleMaker">
-                </div>
-
-                <div id="photoMaker">
-                    <form>
+                    <form action="./outputPage.html">
                         <table>
                             <tr>
                                 <td><input id="filesList" type="file" accept="image/*" multiple></td>
@@ -132,57 +195,27 @@
                                 <td><div class="output"></div></td>
                             </tr>
                         </table>
-                        <script>
-                            const output=document.querySelector('.output');
-                            const selectedFiles = document.querySelector("#filesList");
-        
-                            /*function logFilenames(){
-                                const fileInput = document.querySelector("#filesList");
-                                const files = fileInput.files;
-                                const fileListLength = files.length;
-        
-                                console.log(fileInput);
 
-                                for(let i = 0; i < fileListLength; i++){
-                                    //output.innerText = `${output.content}\n${output.innerText}\n${files.item(i).name}`;
-                                    output.innerHTML += `<img src=${files.item(i).value}>`+"<br />"+`<p>${files.item(i).name}</p>`;
-                                }
-                            }
-        
-                            selectedFiles.addEventListener("change", logFilenames);*/
+                        <div id="F_title">
+                            <textarea cols="50" rows="10" placeholder="주제를 입력해주세요." ></textarea>
 
-                            function logFilenames(){
-                                const files = selectedFiles.files;
-                                const fileListLength = files.length;
-                                const images = [];
+                            <button id="submitButton" type="submit" >제출</button>
+                        </div>
+                    </form>
+                </div>
 
-                                for(let i = 0; i < fileListLength; i++){
-                                    const file = files.item(i);
-                                    const reader = new FileReader();
-                                    reader.readAsDataURL(file);
-                                    reader.onload = () => {
-                                    const img = new Image();
-                                    img.src = reader.result;
-                                    img.onload = () => {
-                                        const canvas = document.createElement('canvas');
-                                        const ctx = canvas.getContext('2d');
-                                        canvas.width = 150;
-                                        canvas.height = 100;
-                                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                                        images.push(`<img id="thumbnail" src="${canvas.toDataURL('image/*')}"><br><p>${file.name}</p>`);
-                                        if (images.length === fileListLength) {
-                                        output.innerHTML = images.join('');
-                                        }
-                                    };
-                                    };
-                                }
-                            }
+                <div id="photoMaker">
+                    <form action="./outputPage.html">
+                        <table>
+                            <tr>
+                                <td><input id="filesList" type="file" accept="image/*" multiple></td>
+                            </tr>
+                            <tr>
+                                <td><div class="output"></div></td>
+                            </tr>
+                        </table>
 
-                            selectedFiles.addEventListener("change", logFilenames);
-
-                        </script>
-
-                        <div id="title">
+                        <div id="P_title">
                             <select id="selector">
                                 <option>-</option>
                                 <option>백설공주</option>
