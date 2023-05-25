@@ -10,6 +10,8 @@
 ## 개발 계획
 ![간트차트](https://user-images.githubusercontent.com/86049096/226330733-2a65e2b6-9525-4022-a40a-d99c15274968.png)
 
+![시퀀스 다이어그램](https://user-images.githubusercontent.com/86049096/229358889-3302b8a4-ff0b-4d76-ab0a-634210bfb91e.png)
+
 ## 설명
 > documents_file
 >> 캡스톤 디자인을 수행하면서 필요한 서류들과 양식들이 들어있는 폴더입니다.    
