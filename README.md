@@ -5,7 +5,7 @@
 
 ## 주제 설명
 <p>python의 flask를 통해 python 프로젝트와 HTML, CSS, JS간의 유기적인 연결을 통해 프로젝트를 운용함.</p>
-<b>프론트엔드 - HTML, CSS, JS</b>
+<b>프론트엔드 - HTML, CSS, JS</b><br />
 <b>백엔드 - Python(Flask)</b>
 
 ## 참여자
