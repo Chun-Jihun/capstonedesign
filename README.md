@@ -4,9 +4,9 @@
 동화프로젝트
 
 ## 주제 설명
-python의 flask를 통해 python 프로젝트와 HTML, CSS, JS간의 유기적인 연결을 통해 프로젝트를 운용함.
-프론트엔드 - HTML, CSS, JS
-백엔드 - Python(Flask)
+<p>python의 flask를 통해 python 프로젝트와 HTML, CSS, JS간의 유기적인 연결을 통해 프로젝트를 운용함.</p>
+<b>프론트엔드 - HTML, CSS, JS</b>
+<b>백엔드 - Python(Flask)</b>
 
 ## 참여자
 팀장 - 18학번 허영무   
