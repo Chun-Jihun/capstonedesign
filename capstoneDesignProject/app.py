@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for
 from werkzeug.utils import secure_filename
+from transformers import pipeline
 import os
 
 app = Flask(__name__)
@@ -18,27 +19,35 @@ def send():
         if(title == '0'):
             f = open('fairyTales/snowWhite.txt', 'r', encoding='UTF8')
             plot = f.read()
+
         elif(title == '1'):
             f = open('fairyTales/cinderella.txt', 'r', encoding='UTF8')
             plot = f.read()
+
         elif(title == '2'):
             f = open('fairyTales/kongjuipadjui.txt', 'r', encoding='UTF8')
             plot = f.read()
+
         elif(title == '#'):
             plot = "오류 : 아무 주제도 고르지 않았습니다."
+
         #개발한다면 여기 밑에 추가해서 진행하는게 더 좋아보일 듯.
         else:
-            plot = title 
+            generator = pipeline('text-generation', tokenizer='gpt2', model='trained_model')
+            plot = generator(title, max_length=800)[0]['generated_text']
+            # plot = title 
 
         #images들을 uploads파일에 저장, outputPage에서 삭제.
         #images값을 아얘 안 넣으면 문제가 생김. 따라서 없을 경우와 아닌 경우를 나눠서 진행
         #images 첫번째 파일 이름 값이 없을 경우를 따져서 파일 유무를 판단함
         if images[0].filename == "":
             images = ""
+
         else:
             #images로 넘어온 값들을 static/uploads 디렉토리로 하나씩 저장하기 위한 과정
             for i in images:
                 i.save('static/uploads/'+ secure_filename(i.filename))
+
             #해당 static/uploads에 저장된 이미지 데이터들을 배열 형식으로 불러옴. (정확히는 리스트인가?)
             images = os.listdir('static/uploads')
 
