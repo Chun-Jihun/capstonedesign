@@ -78,11 +78,15 @@ footer{
 }
 
 #bottomLogo{
+    margin: 0 10px;
+
     float: right;
     width: 15em;
 }
 
 #teamInfo{
+    margin: 0 10px;
+
     float: left;
     padding:10px
 }

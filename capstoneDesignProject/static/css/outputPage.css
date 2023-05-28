@@ -19,7 +19,7 @@ body{
     align-items: center;
 }
 
-#outputDiv{
+/*#outputDiv{
     width: 90%;
     height: 25em;
 
@@ -61,6 +61,30 @@ body{
     height: auto;
 
     border: 1px black solid;
+}*/
+
+#outputPdf{
+    text-align: center;
+}
+
+#outputPdf button{
+    width: 10em;
+    height: 2em;
+
+    margin: 2em 0;
+}
+
+#outputPdf a{
+    text-decoration:none;
+
+    color: black;
+}
+
+#outputPdf iframe{
+    width: 64em;
+    height: 36em;
+
+    text-align:center;
 }
 
 #buttons{
@@ -80,11 +104,15 @@ footer{
 }
 
 #bottomLogo{
+    margin: 0 10px;
+
     float: right;
     width: 15em;
 }
 
 #teamInfo{
+    margin: 0 10px;
+
     float: left;
     padding:10px
 }
@@ -100,6 +128,12 @@ footer{
         width: 20em;
     }
 
+    #outputPdf iframe{
+        width:32em;
+        height: 18em;
+
+        text-align:center;
+    }
 
     #buttons button{
         width: 20em;
@@ -154,6 +188,12 @@ footer{
         width: 20em;
     }
 
+    #outputPdf iframe{
+        width:16em;
+        height: 9em;
+
+        text-align:center;
+    }
 
     #buttons button{
         width: 80%;
