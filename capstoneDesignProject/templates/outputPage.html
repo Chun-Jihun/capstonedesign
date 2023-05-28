@@ -12,7 +12,7 @@
             <img id="logo" src="{{ url_for('static', filename='logo/fairytale_Logo_2.png')}}" alt="로고"/>
         </header>
 
-        <div id="outputDiv">
+        <!--<div id="outputDiv">
             <div id="plotContents">
                 {% if title == "0"%}
                     <h2>백설공주</h2>
@@ -33,13 +33,28 @@
                     <img src="static/uploads/{{i}}" />
                 {% endfor %}
             </div>
+        </div>-->
+
+        <div id="outputPdf">
+            <button>
+                <a href="/static/web/viewer.html?file=/static/uploads/result.pdf">
+                    pdf로 크게보기
+                </a>
+            </button>
+            <br>
+            <div id="innerPdf">
+                <iframe src="/static/web/viewer.html?file=/static/uploads/result.pdf" width="32em" height="16em"></iframe>
+            </div>
         </div>
+
         <div id="buttons">
             <button onclick="location.href='/delete'">
                 <h2>메인 홈페이지</h2>
             </button>
             <button onClick="">
-                <h2>다운로드</h2>
+                <a href="{{ url_for('static', filename='uploads/result.pdf')}}" download>
+                    <h2>다운로드</h2>
+                </a>
             </button>
         </div>
 
