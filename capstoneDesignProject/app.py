@@ -79,33 +79,33 @@ def send():
         #title을 주제로 받으면 fairytalemaker실행
         else:
             #title이 한국어면 영어로 변환
-            if title.isalpha():
-                encText = urllib.parse.quote(title)
-                data = "source=ko&target=en&text=" + encText
-                url = "https://openapi.naver.com/v1/papago/n2mt"
-                api_request = urllib.request.Request(url)
-                api_request.add_header("X-Naver-Client-Id",client_id)
-                api_request.add_header("X-Naver-Client-Secret",client_secret)
-                api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
-                api_rescode = api_response.getcode()
-                if(api_rescode==200):
-                    response_body = api_response.read()
-                    title = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
+            # if title.isalpha():
+                # encText = urllib.parse.quote(title)
+                # data = "source=ko&target=en&text=" + encText
+                # url = "https://openapi.naver.com/v1/papago/n2mt"
+                # api_request = urllib.request.Request(url)
+                # api_request.add_header("X-Naver-Client-Id",client_id)
+                # api_request.add_header("X-Naver-Client-Secret",client_secret)
+                # api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
+                # api_rescode = api_response.getcode()
+                # if(api_rescode==200):
+                #     response_body = api_response.read()
+                #     title = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
 
             generator = pipeline('text-generation', tokenizer='gpt2', model='trained_model')
             plot = generator(title, max_length=800)[0]['generated_text']
             
-            encText = urllib.parse.quote(plot)
-            data = "source=en&target=ko&text=" + encText
-            url = "https://openapi.naver.com/v1/papago/n2mt"
-            api_request = urllib.request.Request(url)
-            api_request.add_header("X-Naver-Client-Id",client_id)
-            api_request.add_header("X-Naver-Client-Secret",client_secret)
-            api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
-            api_rescode = api_response.getcode()
-            if(api_rescode==200):
-                response_body = api_response.read()
-                plot = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
+            # encText = urllib.parse.quote(plot)
+            # data = "source=en&target=ko&text=" + encText
+            # url = "https://openapi.naver.com/v1/papago/n2mt"
+            # api_request = urllib.request.Request(url)
+            # api_request.add_header("X-Naver-Client-Id",client_id)
+            # api_request.add_header("X-Naver-Client-Secret",client_secret)
+            # api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
+            # api_rescode = api_response.getcode()
+            # if(api_rescode==200):
+            #     response_body = api_response.read()
+            #     plot = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
 
         #images들을 uploads파일에 저장, outputPage에서 삭제.
         #images값을 아얘 안 넣으면 문제가 생김. 따라서 없을 경우와 아닌 경우를 나눠서 진행
