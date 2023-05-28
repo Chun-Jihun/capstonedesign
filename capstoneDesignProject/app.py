@@ -16,6 +16,11 @@ from reportlab.pdfbase.ttfonts import TTFont
 # 한글 폰트 등록
 pdfmetrics.registerFont(TTFont('malgun', 'malgun.ttf'))
 
+# 개발자센터에서 발급받은 Client ID 값
+client_id = "8sg4VSnc_BjMjlFTLqY8" 
+# 개발자센터에서 발급받은 Client Secret 값
+client_secret = "9lFaUkZXdm" 
+
 def save_story_to_pdf(text_list, img_files, pdf_file):
     #저장할 pdf지정
     pdf = SimpleDocTemplate("static/uploads/"+pdf_file, pagesizes=letter)
@@ -75,10 +80,6 @@ def send():
         else:
             #title이 한국어면 영어로 변환
             if title.isalpha():
-                # 개발자센터에서 발급받은 Client ID 값
-                client_id = "8sg4VSnc_BjMjlFTLqY8" 
-                # 개발자센터에서 발급받은 Client Secret 값
-                client_secret = "9lFaUkZXdm" 
                 encText = urllib.parse.quote(title)
                 data = "source=ko&target=en&text=" + encText
                 url = "https://openapi.naver.com/v1/papago/n2mt"
@@ -93,7 +94,18 @@ def send():
 
             generator = pipeline('text-generation', tokenizer='gpt2', model='trained_model')
             plot = generator(title, max_length=800)[0]['generated_text']
-            # plot = title 
+            
+            encText = urllib.parse.quote(plot)
+            data = "source=en&target=ko&text=" + encText
+            url = "https://openapi.naver.com/v1/papago/n2mt"
+            api_request = urllib.request.Request(url)
+            api_request.add_header("X-Naver-Client-Id",client_id)
+            api_request.add_header("X-Naver-Client-Secret",client_secret)
+            api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
+            api_rescode = api_response.getcode()
+            if(api_rescode==200):
+                response_body = api_response.read()
+                plot = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
 
         #images들을 uploads파일에 저장, outputPage에서 삭제.
         #images값을 아얘 안 넣으면 문제가 생김. 따라서 없을 경우와 아닌 경우를 나눠서 진행
