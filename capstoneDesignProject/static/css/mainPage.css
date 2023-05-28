@@ -6,13 +6,12 @@ header{
     display:flex; flex-flow:row nowrap; justify-content: center; align-items:center;
 
     width: 100%; height:30%; justify-content: center; align-items: center;
-    background:skyblue;
+
+    border-bottom: 10px skyblue solid;
 }
 
 #logo{
-    width:180px;
-    height:180px;
-    border-radius: 30%;
+    width: 20em;
 }
 
 section{
@@ -20,6 +19,8 @@ section{
     display:flex; flex-flow:row nowrap; justify-content: center; align-items: center;
     
     width: 100%; height:auto;
+
+    margin: 2em 0;
 }
 
 #fileList{
@@ -27,7 +28,7 @@ section{
     text-align: center;
 }
 
-.output{
+.f_output{
     width:800px;
     height:200px;
     overflow:scroll;
@@ -39,7 +40,23 @@ section{
     scrollbar-width: none; /*파이어폭스*/
 }
 
-.output::-webkit-scrollbar {
+.f_output::-webkit-scrollbar {
+    display:none;
+}
+
+.p_output{
+    width:800px;
+    height:200px;
+    overflow:scroll;
+    text-align:center;
+
+    border: 1px black solid;
+
+    -ms-overflow-style: none; /*인터넷 익스플로러*/
+    scrollbar-width: none; /*파이어폭스*/
+}
+
+.p_output::-webkit-scrollbar {
     display:none;
 }
 
@@ -53,13 +70,21 @@ section{
 }
 
 footer{
-    width:100%; height:20%; justify-content: center; align-items: center;
+    display: inline-block;
+
+    width:100%; height:fit-content;
 
     background-color: skyblue;
 }
 
+#bottomLogo{
+    float: right;
+    width: 15em;
+}
+
 #teamInfo{
-        padding:10px
+    float: left;
+    padding:10px
 }
 
 
@@ -71,13 +96,10 @@ footer{
     display:flex; flex-flow:row nowrap; justify-content: center; align-items:center;
 
     width: 100%; height:300px; justify-content: center; align-items: center;
-    background: blue
     }
 
     #logo{
-        width:150px;
-        height:150px;
-        border-radius: 30%;
+        width: 20em;
     }
 
     section{
@@ -92,7 +114,17 @@ footer{
         text-align: center;
     }
 
-    .output{
+    .f_output{
+        width:400px;
+        height:180px;
+        overflow:scroll;
+        text-align:center;
+
+        border: 5px solid black;
+        border-radius: 20px;
+    }
+
+    .p_output{
         width:400px;
         height:180px;
         overflow:scroll;
@@ -165,13 +197,22 @@ footer{
     }
 
     footer{
-        width:100%; height:20%; justify-content: center; align-items: center;
+        display:flex;
+        flex-flow:column;
+
+        justify-content: center;
+        align-items: center;
+
+        width:100%; height:fit-content;
     
         background-color: skyblue;
     }
+
+    #bottomLogo{
+        width: 20em;
+    }
     
     #teamInfo{
-        text-align: center;
         padding:10px
     }
 }
@@ -183,13 +224,10 @@ footer{
         display:flex; flex-flow:row nowrap; justify-content: center; align-items:center;
 
         width: 100%; height:30%; justify-content: center; align-items: center;
-        background:blueviolet;
     }
 
     #logo{
-        width:120px;
-        height:120px;
-        border-radius: 30%;
+        width: 20em;
     }
 
     section{
@@ -204,7 +242,17 @@ footer{
         text-align: center;
     }
 
-    .output{
+    .f_output{
+        width:300px;
+        height:150px;
+        overflow:scroll;
+        text-align:center;
+
+        border: 5px solid black;
+        border-radius: 20px;
+    }
+
+    .p_output{
         width:300px;
         height:150px;
         overflow:scroll;
@@ -277,13 +325,22 @@ footer{
     }
 
     footer{
-        width:100%; height:20%; justify-content: center; align-items: center;
+        display:flex;
+        flex-flow:column;
+
+        justify-content: center;
+        align-items: center;
+
+        width:100%; height:fit-content;
     
         background-color: skyblue;
     }
+
+    #bottomLogo{
+        width: 20em;
+    }
     
     #teamInfo{
-        text-align: center;
         padding:10px
     }
 }
