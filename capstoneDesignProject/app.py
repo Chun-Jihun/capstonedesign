@@ -14,7 +14,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
 # 한글 폰트 등록
-pdfmetrics.registerFont(TTFont('malgun', 'malgun.ttf'))
+pdfmetrics.registerFont(TTFont('Binggrae', 'Binggrae.ttf'))
 
 # 개발자센터에서 발급받은 Client ID 값
 client_id = "8sg4VSnc_BjMjlFTLqY8" 
@@ -29,7 +29,7 @@ def save_story_to_pdf(text_list, img_files, pdf_file):
         'CustomStyle', 
         parent=getSampleStyleSheet()['BodyText'], 
         #사용할 폰트
-        fontName='malgun',
+        fontName='Binggrae',
         #글자 크기
         fontSize=30,
         #줄 간격
@@ -137,7 +137,7 @@ def send():
             'CustomStyle', 
             parent=getSampleStyleSheet()['BodyText'], 
             #사용할 폰트
-            fontName='malgun',
+            fontName='Binggrae',
             #글자 크기
             fontSize=30,
             #줄 간격
