@@ -281,5 +281,18 @@
             </div>
             <img id="bottomLogo" src="{{url_for('static', filename='logo/ACT_Logo.png')}}" />
         </footer>
+        <script>
+            function changeSubmitButtonText() {
+                const submitButtons = document.querySelectorAll('#submitButton');
+                
+                submitButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        button.textContent = '로딩중';
+                    });
+                });
+            }
+
+            window.onload = changeSubmitButtonText;
+        </script>
     </body>
 </html>
