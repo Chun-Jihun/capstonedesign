@@ -3,6 +3,74 @@ from werkzeug.utils import secure_filename
 from transformers import pipeline
 import os
 
+from PIL import Image
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+from PyPDF2 import PdfMerger
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+
+from reportlab.lib.units import inch
+
+
+# 한글 폰트 등록
+pdfmetrics.registerFont(TTFont('malgun', 'malgun.ttf'))
+
+def save_story_to_pdf(text_list, img_files, pdf_file):
+    pdf = SimpleDocTemplate("static/uploads/"+pdf_file, pagesizes=letter)
+    story = []
+    custom_style = ParagraphStyle(
+        'CustomStyle', 
+        parent=getSampleStyleSheet()['BodyText'], 
+        #사용할 폰트
+        fontName='malgun',
+        #글자 크기
+        fontSize=30,
+        #줄 간격
+        leading=38
+    )
+
+    for i in range(min(len(text_list), len(img_files))):
+        full_path = 'static/uploads/' + img_files[i]
+        img = Image(full_path, width=200, height=200)
+        story.append(img)
+        text = Paragraph(text_list[i], custom_style)
+        story.append(text)
+        story.append(PageBreak())
+
+    pdf.build(story)
+
+# def save_text_to_pdf(text, pdf_file):
+#     pdf = SimpleDocTemplate("static/uploads/"+pdf_file, pagesizes=letter)
+#     story = []
+#     # 커스텀 스타일 생성
+#     custom_style = ParagraphStyle(
+#         'CustomStyle', 
+#         parent=getSampleStyleSheet()['BodyText'], 
+#         fontName='malgun'
+#     )
+#     story.append(Paragraph(text, custom_style))
+#     pdf.build(story)
+
+# # 이미지 데이터를 PDF로 저장하는 함수
+# def save_img_to_pdf(img_files, pdf_files):
+#     for i, img_file in enumerate(img_files):
+#         full_path = 'static/uploads/' + img_file
+#         c = canvas.Canvas(pdf_files[i], pagesize=letter)
+#         c.drawImage(full_path, 0, 0, width=200, height=200)
+#         c.showPage()
+#         c.save()
+
+# 두 PDF를 합치는 함수
+def merge_pdfs(pdf_list, output):
+    merger = PdfMerger()
+    for pdf in pdf_list:
+        merger.append(pdf)
+    merger.write('static/uploads/'+output)
+    merger.close()
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -48,10 +116,35 @@ def send():
             for i in images:
                 i.save('static/uploads/'+ secure_filename(i.filename))
 
-            #해당 static/uploads에 저장된 이미지 데이터들을 배열 형식으로 불러옴. (정확히는 리스트인가?)
+            #해당 static/uploads에 저장된 이미지 데이터들을 list 형식으로 불러옴.
             images = os.listdir('static/uploads')
 
+        files = os.listdir('static/uploads')
+        images = [f for f in files if os.path.splitext(f)[1] in ['.png', '.jpg', '.jpeg', '.gif']]
+
+        # plot을 문단으로 분리
+        plot_paragraphs = [p for p in plot.split('\n') if p.strip() != '']
+
+        # 생성된 images와 plot_paragraphs를 pdf로 저장
+        save_story_to_pdf(plot_paragraphs, images, 'result.pdf')
+
         return render_template("outputPage.html", title=title, images=images, plot= plot)
+
+
+        # files = os.listdir('static/uploads')
+        # images = [f for f in files if os.path.splitext(f)[1] in ['.png', '.jpg', '.jpeg', '.gif']]
+
+        # # 생성된 images와 str들을 pdf로 저장
+        # save_text_to_pdf(plot,'title.pdf')
+        # img_pdf=[]
+        # for i in range(len(images)):
+        #     img_pdf.append('static/uploads/img'+str(i)+'.pdf')
+        # save_img_to_pdf(images,img_pdf)
+        # pdf_list = ['static/uploads/title.pdf']+img_pdf
+        # output = 'result.pdf'
+        # merge_pdfs(pdf_list,output)
+
+        # return render_template("outputPage.html", title=title, images=images, plot= plot)
 
 #outputPage에서 home으로 돌아갈 때, 입력한 이미지를 지우기 위한 과정
 @app.route('/delete')
