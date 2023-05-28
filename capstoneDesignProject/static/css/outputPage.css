@@ -95,6 +95,13 @@ body{
     text-align:center;
 }
 
+#buttons a{
+    text-decoration:none;
+
+    color: black;
+}
+
+
 footer{
     display: inline-block;
 
@@ -133,6 +140,36 @@ footer{
         height: 18em;
 
         text-align:center;
+    }
+
+    #outputPdf button{
+        width: 20em;
+        height: 5em;
+
+        color:black;
+
+        border: 5px black solid;
+        border-radius: 50px;
+
+        font-weight:bold;
+        
+        margin: 2em 0;
+    }
+
+    #outputPdf button:hover{
+        background: grey;
+    }
+
+    #outputPdf button:active{
+        color: white;
+        
+        background: skyblue;
+    }
+    
+    #outputPdf a{
+        text-decoration:none;
+
+        font-size:20px;
     }
 
     #buttons button{
@@ -188,11 +225,39 @@ footer{
         width: 20em;
     }
 
+    #outputPdf{
+        width:100%;
+    }
+
     #outputPdf iframe{
         width:16em;
         height: 9em;
 
         text-align:center;
+    }
+
+    #outputPdf button{
+        width: 80%;
+        height: 5em;
+
+        color:black;
+
+        border: 5px black solid;
+        border-radius: 50px;
+
+        font-weight:bold;
+        
+        margin: 2em 0;
+    }
+
+    #outputPdf button:hover{
+        background: grey;
+    }
+
+    #outputPdf button:active{
+        color: white;
+        
+        background: skyblue;
     }
 
     #buttons button{
