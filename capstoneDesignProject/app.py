@@ -80,17 +80,17 @@ def send():
         else:
             #title이 한국어면 영어로 변환
             # if title.isalpha():
-                # encText = urllib.parse.quote(title)
-                # data = "source=ko&target=en&text=" + encText
-                # url = "https://openapi.naver.com/v1/papago/n2mt"
-                # api_request = urllib.request.Request(url)
-                # api_request.add_header("X-Naver-Client-Id",client_id)
-                # api_request.add_header("X-Naver-Client-Secret",client_secret)
-                # api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
-                # api_rescode = api_response.getcode()
-                # if(api_rescode==200):
-                #     response_body = api_response.read()
-                #     title = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
+            #     encText = urllib.parse.quote(title)
+            #     data = "source=ko&target=en&text=" + encText
+            #     url = "https://openapi.naver.com/v1/papago/n2mt"
+            #     api_request = urllib.request.Request(url)
+            #     api_request.add_header("X-Naver-Client-Id",client_id)
+            #     api_request.add_header("X-Naver-Client-Secret",client_secret)
+            #     api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
+            #     api_rescode = api_response.getcode()
+            #     if(api_rescode==200):
+            #         response_body = api_response.read()
+            #         title = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
 
             generator = pipeline('text-generation', tokenizer='gpt2', model='trained_model')
             plot = generator(title, max_length=800)[0]['generated_text']
@@ -143,6 +143,16 @@ def send():
             #줄 간격
             leading=38
             )
+            files = os.listdir('static/uploads')
+            images = [f for f in files if os.path.splitext(f)[1] in ['.png', '.jpg', '.jpeg', '.gif']]
+
+            #이미지와 텍스트파일 병합
+            full_path = 'static/uploads/' + images[0]
+            img = Image(full_path, width=200, height=200)
+            story.append(img)
+            story.append(Paragraph(plot, custom_style))
+
+
             story.append(Paragraph(plot, custom_style))
             pdf.build(story)
 
