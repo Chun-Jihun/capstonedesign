@@ -5,6 +5,7 @@ import os
 import sys
 import urllib.request
 import json
+import subprocess
 
 from PIL import Image
 from reportlab.lib.pagesizes import letter, A4
@@ -80,17 +81,17 @@ def send():
         else:
             #title이 한국어면 영어로 변환
             # if title.isalpha():
-            #     encText = urllib.parse.quote(title)
-            #     data = "source=ko&target=en&text=" + encText
-            #     url = "https://openapi.naver.com/v1/papago/n2mt"
-            #     api_request = urllib.request.Request(url)
-            #     api_request.add_header("X-Naver-Client-Id",client_id)
-            #     api_request.add_header("X-Naver-Client-Secret",client_secret)
-            #     api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
-            #     api_rescode = api_response.getcode()
-            #     if(api_rescode==200):
-            #         response_body = api_response.read()
-            #         title = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
+                # encText = urllib.parse.quote(title)
+                # data = "source=ko&target=en&text=" + encText
+                # url = "https://openapi.naver.com/v1/papago/n2mt"
+                # api_request = urllib.request.Request(url)
+                # api_request.add_header("X-Naver-Client-Id",client_id)
+                # api_request.add_header("X-Naver-Client-Secret",client_secret)
+                # api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
+                # api_rescode = api_response.getcode()
+                # if(api_rescode==200):
+                #     response_body = api_response.read()
+                #     title = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
 
             generator = pipeline('text-generation', tokenizer='gpt2', model='trained_model')
             plot = generator(title, max_length=800)[0]['generated_text']
@@ -122,6 +123,21 @@ def send():
             images = os.listdir('static/uploads')
 
         if len(title) == 1:
+            prompt = "masterpiece, detailed, modern disney, worst quality:-1.4, low quality:-1.4, greyscale:-1.1, monochrome:-1.1, 3D face:-1.0, Easynegative:-1.0"
+            #이미지 이름 불러와야함
+            # init_img = "static/uploads/test.jpg"
+            init_img = 'static/uploads/'+[f for f in os.listdir('static/uploads') if os.path.splitext(f)[1] in ['.png', '.jpg', '.jpeg', '.gif']][0]
+
+
+            command = f'python scripts/img2img.py --prompt "{prompt}" --init-img "{init_img}"'
+            process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            stdout, stderr = process.communicate()
+
+            if process.returncode != 0:
+                print(f'Error occurred: {stderr.decode()}')
+            else:
+                print(stdout.decode())
+
             files = os.listdir('static/uploads')
             images = [f for f in files if os.path.splitext(f)[1] in ['.png', '.jpg', '.jpeg', '.gif']]
 
@@ -151,10 +167,9 @@ def send():
             img = Image(full_path, width=200, height=200)
             story.append(img)
             story.append(Paragraph(plot, custom_style))
-
-
             story.append(Paragraph(plot, custom_style))
             pdf.build(story)
+        process.terminate()
 
         return render_template("outputPage.html", title=title, images=images, plot= plot)
 
