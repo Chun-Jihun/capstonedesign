@@ -146,6 +146,7 @@ def send():
 
             # 생성된 images와 plot_paragraphs를 pdf로 저장
             save_story_to_pdf(plot_paragraphs, images, 'result.pdf')
+            process.terminate()
         else:
             pdf = SimpleDocTemplate("static/uploads/result.pdf", pagesizes=A4)
             story = []
@@ -169,7 +170,6 @@ def send():
             story.append(Paragraph(plot, custom_style))
             story.append(Paragraph(plot, custom_style))
             pdf.build(story)
-        process.terminate()
 
         return render_template("outputPage.html", title=title, images=images, plot= plot)
 
