@@ -79,22 +79,20 @@ def send():
 
         #title을 주제로 받으면 fairytalemaker실행
         else:
-            #title이 한국어면 영어로 변환
-            # if title.isalpha():
-                # encText = urllib.parse.quote(title)
-                # data = "source=ko&target=en&text=" + encText
-                # url = "https://openapi.naver.com/v1/papago/n2mt"
-                # api_request = urllib.request.Request(url)
-                # api_request.add_header("X-Naver-Client-Id",client_id)
-                # api_request.add_header("X-Naver-Client-Secret",client_secret)
-                # api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
-                # api_rescode = api_response.getcode()
-                # if(api_rescode==200):
-                #     response_body = api_response.read()
-                #     title = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
+            # encText = urllib.parse.quote(title)
+            # data = "source=ko&target=en&text=" + encText
+            # url = "https://openapi.naver.com/v1/papago/n2mt"
+            # api_request = urllib.request.Request(url)
+            # api_request.add_header("X-Naver-Client-Id",client_id)
+            # api_request.add_header("X-Naver-Client-Secret",client_secret)
+            # api_response = urllib.request.urlopen(api_request, data=data.encode("utf-8"))
+            # api_rescode = api_response.getcode()
+            # if(api_rescode==200):
+            #     response_body = api_response.read()
+            #     title = json.loads(response_body.decode('utf-8'))['message']['result']['translatedText']
 
             generator = pipeline('text-generation', tokenizer='gpt2', model='trained_model')
-            plot = generator(title, max_length=800)[0]['generated_text']
+            plot = generator(title, max_length=800, top_k=0, top_p=0.92, do_sample=True)[0]['generated_text']
             
             # encText = urllib.parse.quote(plot)
             # data = "source=en&target=ko&text=" + encText
